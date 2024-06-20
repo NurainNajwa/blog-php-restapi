@@ -1,0 +1,21 @@
+RewriteEngine On
+RewriteBase /blog-restfulapi/backend/api/
+
+# Handle requests for assessments
+RewriteRule ^assessments/?(.*)$ assessment.php/$1 [QSA,L]
+
+# Handle requests for course materials
+RewriteRule ^coursematerials/?(.*)$ coursematerial.php/$1 [QSA,L]
+
+# Handle requests for contact messages
+RewriteRule ^messages/?(.*)$ contactus.php/$1 [QSA,L]
+
+# Handle requests for users (if needed)
+RewriteRule ^users/?(.*)$ index.php/$1 [QSA,L]
+
+
+RewriteEngine On
+# Redirect all requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
